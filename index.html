@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Demeya — AI Rental Concierge</title>
+<meta name="description" content="Demeya — l'assistente AI che risponde ai clienti degli autonoleggi 24 ore su 24, nella loro lingua.">
+<meta property="og:title" content="Demeya — AI Rental Concierge">
+<meta property="og:description" content="Ogni cliente, ogni lingua, a ogni ora.">
+<meta property="og:image" content="og.jpg">
+<link rel="icon" href="icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#001801;--bg2:#001c01;--gold:#f3c766;--gold2:#c98f2b;--ink:#f3ecd8;--mute:#b9c9b6;--line:rgba(243,199,102,.28)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--bg)}
+body{min-height:100vh;background:linear-gradient(180deg,#001a01 0%,#001801 45%,#001001 100%);color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.55;overflow-x:hidden}
+canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.wrap{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:20px 16px 40px;min-height:100vh;min-height:100svh;display:flex;flex-direction:column}
+.wrap>header{margin-top:auto}
+.wrap>footer{margin-bottom:auto}
+nav{display:flex;justify-content:flex-end;gap:6px}
+nav button{background:transparent;border:1px solid var(--line);color:var(--mute);font:600 13px Inter,sans-serif;letter-spacing:1px;padding:7px 12px;border-radius:999px;cursor:pointer}
+nav button[aria-pressed=true]{background:var(--gold);color:#1b1608;border-color:var(--gold)}
+.hero{margin-top:14px;text-align:center}
+.hero{overflow:visible}
+.hero img{display:block;height:auto;width:min(1300px,100vw);margin-left:calc(50% - 50vw);margin-right:auto;-webkit-mask-image:linear-gradient(90deg,#000 96.5%,transparent),linear-gradient(180deg,transparent,#000 6%,#000 92%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,#000 96.5%,transparent),linear-gradient(180deg,transparent,#000 6%,#000 92%,transparent);mask-composite:intersect}
+.one{color:var(--ink);font-size:clamp(17px,2.4vw,21px);letter-spacing:.5px;margin:4px 0 18px}
+.badge{display:inline-block;margin-top:6px;padding:8px 18px;border:1px solid var(--line);border-radius:999px;color:var(--gold);font-size:13px;letter-spacing:3px;text-transform:uppercase}
+h1{text-wrap:balance;font-family:Lora,serif;margin-top:8px !important;font-weight:600;font-size:clamp(30px,5.4vw,52px);line-height:1.18;margin:22px auto 14px;max-width:820px;background:linear-gradient(180deg,#fff1c4,#f3c766 55%,#c98f2b);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{max-width:680px;margin:0 auto;color:var(--mute);font-size:clamp(16px,2.2vw,19px)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:46px 0 10px}
+.card{border:1px solid var(--line);border-radius:18px;padding:22px 20px;background:rgba(3,40,9,.45);backdrop-filter:blur(2px)}
+.card .ic{font-size:26px}
+.card h3{font-family:Lora,serif;font-weight:600;font-size:21px;color:var(--gold);margin:8px 0 6px}
+.card p{color:var(--mute);font-size:15px}
+.soon{text-align:center;margin:40px auto 0;max-width:620px}
+.soon .line{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 22px;width:70%}
+.soon p{font-family:Lora,serif;font-style:italic;font-size:20px;color:var(--ink)}
+footer{text-align:center;margin-top:60px;color:#7f957f;font-size:13px;letter-spacing:.5px}
+footer b{color:var(--gold);font-weight:600;letter-spacing:2px}
+[data-l]{display:none}
+html[lang=it] [data-l=it],html[lang=en] [data-l=en],html[lang=pl] [data-l=pl]{display:revert}
+@media (max-width:760px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<canvas id="sky"></canvas>
+<div class="wrap">
+  <nav aria-label="Lingua / Language / Język">
+    <button data-set="it">IT</button><button data-set="en">EN</button><button data-set="pl">PL</button>
+  </nav>
+
+  <header class="hero">
+    <img src="logo.webp" width="1774" height="887" alt="Demeya — AI Rental Concierge · Trust · Intuition · Knowledge">
+    <h1>
+      <span data-l="it">Ogni cliente, ogni lingua, a ogni ora.</span>
+      <span data-l="en">Every customer, every language, at any hour.</span>
+      <span data-l="pl">Każdy klient, każdy język, o każdej porze.</span>
+    </h1>
+    <p class="one"><span data-l="it">Assistente AI per autonoleggi</span><span data-l="en">AI assistant for car rental companies</span><span data-l="pl">Asystentka AI dla wypożyczalni samochodów</span></p>
+    <span class="badge"><span data-l="it">In arrivo</span><span data-l="en">Coming soon</span><span data-l="pl">Wkrótce</span></span>
+    </header>
+
+  <footer><b>DEMEYA</b> · AI Rental Concierge · © 2026</footer>
+</div>
+<script>
+(function(){
+  var langs=['it','en','pl'],set=function(l){document.documentElement.lang=l;document.querySelectorAll('nav button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.set===l)});try{localStorage.setItem('lang',l)}catch(e){}};
+  var saved=null;try{saved=localStorage.getItem('lang')}catch(e){}
+  var nav=(navigator.language||'it').slice(0,2).toLowerCase();
+  set(langs.indexOf(saved)>-1?saved:(langs.indexOf(nav)>-1?nav:'en'));
+  document.querySelectorAll('nav button').forEach(function(b){b.addEventListener('click',function(){set(b.dataset.set)})});
+  var c=document.getElementById('sky'),x=c.getContext('2d'),S=[],w,h,dpr=Math.min(window.devicePixelRatio||1,2);
+  function rs(){w=innerWidth;h=innerHeight;c.width=w*dpr;c.height=h*dpr;x.setTransform(dpr,0,0,dpr,0,0)}
+  rs();addEventListener('resize',rs);
+  for(var i=0;i<45;i++)S.push({x:Math.random(),y:Math.random(),r:.4+Math.random()*1.6,p:Math.random()*6.3,s:.3+Math.random()})
+  var still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function f(t){x.clearRect(0,0,w,h);t=t/1000;S.forEach(function(s){var a=.15+.45*(.5+.5*Math.sin(t*s.s+s.p));x.fillStyle='rgba(255,215,140,'+a+')';x.beginPath();x.arc(s.x*w,s.y*h,s.r,0,6.3);x.fill()});if(!still)requestAnimationFrame(f)}
+  requestAnimationFrame(f);
+})();
+</script>
+</body>
+</html>
