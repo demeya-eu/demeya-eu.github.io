@@ -6,8 +6,8 @@
 <title>Demeya — AI Rental Concierge</title>
 <meta name="description" content="Demeya — l'assistente AI che risponde ai clienti degli autonoleggi 24 ore su 24, nella loro lingua.">
 <meta property="og:title" content="Demeya — AI Rental Concierge">
-<meta property="og:description" content="Ogni cliente, ogni lingua, a ogni ora.">
-<meta property="og:image" content="https://demeya.eu/og.jpg">
+<meta property="og:description" content="Every customer, every language, at any hour.">
+<meta property="og:image" content="https://demeya.eu/og.jpg?v=3">
 <meta property="og:url" content="https://demeya.eu/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
@@ -71,6 +71,12 @@ html[lang=it] [data-l=it],html[lang=en] [data-l=en],html[lang=pl] [data-l=pl]{di
  .netl{display:block;position:absolute;right:88%;top:-55.79%;width:55%;height:auto;pointer-events:none;z-index:0}
  .net{-webkit-mask-image:linear-gradient(90deg,transparent,#000 16%);mask-image:linear-gradient(90deg,transparent,#000 16%)}
 }
+
+.badge{overflow:hidden;animation:pulse 2.8s ease-in-out infinite;font-weight:600}
+.badge::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:45%;background:linear-gradient(100deg,transparent,rgba(255,240,195,.85),transparent);transform:skewX(-20deg);animation:shine 2.8s ease-in-out infinite;pointer-events:none}
+@keyframes shine{0%,35%{left:-60%}75%,100%{left:130%}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(240,195,100,0);border-color:var(--line)}50%{box-shadow:0 0 18px 2px rgba(240,195,100,.45);border-color:rgba(240,200,110,.9)}}
+@media (prefers-reduced-motion:reduce){.badge,.badge::after{animation:none}}
 </style>
 </head>
 <body>
